@@ -5,6 +5,8 @@ public class Truck extends Vehicle {
     private int breakdownTurnsLeft;
 
     private static final int SPEED = 100;
+    private static final int BREAKDOWN_TURNS = 2;
+    private static final double BREAKING_DOWN_PROBABILITY = 0.05;
 
     @Override
     protected void setName() {
@@ -17,9 +19,9 @@ public class Truck extends Vehicle {
             currentSpeed = 0; // TODO: this case should be handled in MoveForAnHour
             breakdownTurnsLeft --;
         } else {
-            if (Util.prob(0.05)) {
+            if (Util.prob(BREAKING_DOWN_PROBABILITY)) {
                 race.anyBrokenTrucks = true;
-                breakdownTurnsLeft = 2;
+                breakdownTurnsLeft = BREAKDOWN_TURNS;
             } else {
                 currentSpeed = SPEED;
             }

@@ -5,6 +5,8 @@ public class Car extends Vehicle {
     private static final int MAX_SPEED_IF_BROKE_TRUCK = 75;
     private static final int NORMAL_SPEED_MIN = 80;
     private static final int NORMAL_SPEED_MAX = 110;
+    private static final double RAIN_DISADVANTAGE_MIN = 0.7;
+    private static final double RAIN_DISADVANTAGE_MAX = 0.9;
 
     private double rainDisadvantage;
 
@@ -34,7 +36,7 @@ public class Car extends Vehicle {
     }
 
     private void setRainDisadvantage() {
-        rainDisadvantage = Util.getRandomNumber(0.7, 0.9);
+        rainDisadvantage = Util.getRandomNumber(RAIN_DISADVANTAGE_MIN, RAIN_DISADVANTAGE_MAX);
     }
 
     @Override

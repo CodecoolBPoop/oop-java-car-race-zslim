@@ -2,6 +2,8 @@ package com.codecool.car_race;
 
 public class Weather {
 
+    private static final double RAIN_PROBABILITY = 0.3;
+
     private boolean raining;
 
     public Weather() {
@@ -9,7 +11,7 @@ public class Weather {
     }
 
     public void setRaining() {
-        raining = Util.prob(0.3);
+        raining = Util.prob(RAIN_PROBABILITY);
     }
 
     public boolean isRaining() {
