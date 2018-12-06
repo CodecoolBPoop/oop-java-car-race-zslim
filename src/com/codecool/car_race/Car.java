@@ -24,7 +24,7 @@ public class Car extends Vehicle {
         setRainDisadvantage();
     }
 
-    public void setName() { // TODO: why can't this be private?
+    protected void setName() { // TODO: why can't this be private?
         name = nameList[Util.getRandomNumber(0, nameList.length - 1)] + nameList[Util.getRandomNumber(0, nameList.length - 1)];
     }
 

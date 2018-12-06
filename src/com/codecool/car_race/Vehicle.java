@@ -8,7 +8,7 @@ abstract class Vehicle {
 
     protected int currentSpeed;
 
-    abstract void setName(); // TODO: how should I declare this so that it can be private when implemented?
+    protected abstract void setName();
     public String getName() {
         return name;
     }
