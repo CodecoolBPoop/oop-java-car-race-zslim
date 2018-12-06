@@ -4,6 +4,10 @@ public class Weather {
 
     private boolean raining;
 
+    public Weather() {
+        setRaining();
+    }
+
     public void setRaining() {
         raining = Util.prob(0.3);
     }
