@@ -7,8 +7,20 @@ public class Util {
         return result;
     }
 
-    public static int getRandomInt(int min, int max) {
-        int rand = (int) Math.round(Math.random() * (max - min)) + min;
+    public static int getRandomNumber(int min, int max) {
+        int rand = round(Math.random() * (max - min)) + min;
         return rand;
+    }
+
+    public static double getRandomNumber(double min, double max) {
+        double rand = Math.random() * (max - min) + min;
+        return rand;
+    }
+
+    public static int round(double number) {
+        return (int) Math.round(number);
+    }
+    public static int round(float number) {
+        return (int) Math.round(number);
     }
 }

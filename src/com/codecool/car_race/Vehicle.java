@@ -2,13 +2,13 @@ package com.codecool.car_race;
 
 abstract class Vehicle {
 
-    private String name;
+    protected String name;
 
     private int distanceTraveled;
 
-    private int currentSpeed;
+    protected int currentSpeed;
 
-    abstract void setName();
+    abstract void setName(); // TODO: how should I declare this so that it can be private when implemented?
     public String getName() {
         return name;
     }
