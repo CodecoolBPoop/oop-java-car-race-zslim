@@ -24,6 +24,7 @@ public class Car extends Vehicle {
         setRainDisadvantage();
     }
 
+    @Override
     protected void setName() { // TODO: why can't this be private?
         name = nameList[Util.getRandomNumber(0, nameList.length - 1)] + nameList[Util.getRandomNumber(0, nameList.length - 1)];
     }
@@ -36,6 +37,7 @@ public class Car extends Vehicle {
         rainDisadvantage = Util.getRandomNumber(0.7, 0.9);
     }
 
+    @Override
     public void prepareForLap(Race race) {
         if (race.anyBrokenTrucks) {
             currentSpeed = MAX_SPEED_IF_BROKE_TRUCK;
