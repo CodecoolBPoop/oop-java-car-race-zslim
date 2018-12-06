@@ -4,6 +4,8 @@ public class Truck extends Vehicle {
 
     private int breakdownTurnsLeft;
 
+    private static final int SPEED = 100;
+
     @Override
     protected void setName() {
         name = Integer.toString(Util.getRandomNumber(0, 1000));
@@ -18,6 +20,8 @@ public class Truck extends Vehicle {
             if (Util.prob(0.05)) {
                 race.anyBrokenTrucks = true;
                 breakdownTurnsLeft = 2;
+            } else {
+                currentSpeed = SPEED;
             }
         }
 
