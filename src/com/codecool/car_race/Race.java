@@ -1,6 +1,7 @@
 package com.codecool.car_race;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class Race {
 
     public void simulateRace() {
         for (int j = 1; j < 50; j++) {
-            System.out.println("== " + j + "th hour (lap) ==");
+            weather.setRaining();
             for (Vehicle vehicle :
                     vehicles) {
                 vehicle.prepareForLap(this);
@@ -33,7 +34,7 @@ public class Race {
         vehicles.sort(Comparator.comparing(Vehicle::getDistanceTraveled).reversed());
         int place = 1;
 
-        System.out.println("==== Final results ====");
+        System.out.println("\n\n==== Final results ====");
 
         for (Vehicle vehicle :
                 vehicles) {
@@ -47,6 +48,8 @@ public class Race {
             sb.append(", ");
             sb.append(vehicle.getDistanceTraveled());
 
+            System.out.println(sb);
+
             place++;
         }
     }
@@ -54,7 +57,16 @@ public class Race {
     public void printLapResults(int lapNumber) {
         vehicles.sort(Comparator.comparing(Vehicle::getDistanceTraveled).reversed());
 
-        System.out.println("Results after lap " + lapNumber + ":");
+        System.out.println("\n>>> Results after lap " + lapNumber + ":");
+
+        if (weather.isRaining()) {
+            System.out.println("RAINING!");
+        }
+
+        if (anyBrokenTrucks) {
+            System.out.println("TRUCK BROKEN DOWN!");
+        }
+
         for (int i = 0; i < 10; i++) {
             Vehicle currentVehicle = vehicles.get(i);
             StringBuilder sb = new StringBuilder();
@@ -66,6 +78,8 @@ public class Race {
             sb.append(currentVehicle.getName()); // TODO: doesn't show error if I just access name here although it's supposed to be protected
             sb.append(", ");
             sb.append(currentVehicle.getDistanceTraveled());
+
+            System.out.println(sb);
         }
     }
 
