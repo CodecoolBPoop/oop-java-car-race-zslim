@@ -1,25 +1,35 @@
 package com.codecool.car_race;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
 public class Race {
 
-    public boolean anyBrokenTrucks;
+    private int numOfBrokenTrucks;
 
     public Weather weather;
 
     public List<Vehicle> vehicles = new ArrayList<>();
 
+    public void incrementNumOfBrokenTrucks() {
+        numOfBrokenTrucks++;
+    }
+
+    public void decrementNumOfBrokenTrucks() {
+        numOfBrokenTrucks--;
+    }
+
+    public int getNumOfBrokenTrucks() {
+        return numOfBrokenTrucks;
+    }
+
     public Race() {
         weather = new Weather();
-        anyBrokenTrucks = false;
     }
 
     public void simulateRace() {
-        for (int j = 1; j < 50; j++) {
+        for (int j = 1; j < 51; j++) {
             weather.setRaining();
             for (Vehicle vehicle :
                     vehicles) {
@@ -63,7 +73,7 @@ public class Race {
             System.out.println("RAINING!");
         }
 
-        if (anyBrokenTrucks) {
+        if (numOfBrokenTrucks > 0) {
             StringBuilder sb = new StringBuilder("BROKEN TRUCKS: ");
             List<String> brokenTruckNames = getBrokeTruckNames();
             sb.append(String.join(", ", brokenTruckNames));
