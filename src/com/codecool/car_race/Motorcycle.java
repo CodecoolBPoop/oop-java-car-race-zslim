@@ -6,8 +6,9 @@ public class Motorcycle extends Vehicle {
     private static final int RAIN_DISADVANTAGE_MIN = 5;
     private static final int RAIN_DISADVANTAGE_MAX = 50;
 
-    public Motorcycle(Race race) {
-        setName(race);
+    public Motorcycle(int number) {
+        setName(number);
+        setVehicleType();
     }
 
     @Override
@@ -15,8 +16,8 @@ public class Motorcycle extends Vehicle {
         // TODO: I need parameters in this class only, so is it okay to overload this method with one with parameters?
     }
 
-    protected void setName(Race race) {
-        name = "Motorcycle " + race.motorcycles.size();
+    protected void setName(int number) {
+        name = "Motorcycle " + number;
     }
 
     @Override

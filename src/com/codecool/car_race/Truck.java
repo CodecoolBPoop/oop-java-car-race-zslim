@@ -8,6 +8,11 @@ public class Truck extends Vehicle {
     private static final int BREAKDOWN_TURNS = 2;
     private static final double BREAKING_DOWN_PROBABILITY = 0.05;
 
+    public Truck() {
+        setName();
+        setVehicleType();
+    }
+
     @Override
     protected void setName() {
         name = Integer.toString(Util.getRandomNumber(0, 1000));

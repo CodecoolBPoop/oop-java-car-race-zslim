@@ -22,6 +22,7 @@ public class Car extends Vehicle {
 
     public Car() {
         setName();
+        setVehicleType();
         setNormalSpeed();
         setRainDisadvantage();
     }
