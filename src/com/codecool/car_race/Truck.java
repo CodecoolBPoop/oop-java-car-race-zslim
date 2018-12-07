@@ -18,6 +18,10 @@ public class Truck extends Vehicle {
         name = Integer.toString(Util.getRandomNumber(0, 1000));
     }
 
+    public int getBreakdownTurnsLeft() {
+        return breakdownTurnsLeft;
+    }
+
     @Override
     public void prepareForLap(Race race) {
         if (breakdownTurnsLeft > 0) {

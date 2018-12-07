@@ -64,7 +64,10 @@ public class Race {
         }
 
         if (anyBrokenTrucks) {
-            System.out.println("TRUCK BROKEN DOWN!");
+            StringBuilder sb = new StringBuilder("BROKEN TRUCKS: ");
+            List<String> brokenTruckNames = getBrokeTruckNames();
+            sb.append(String.join(", ", brokenTruckNames));
+            System.out.println(sb);
         }
 
         for (int i = 0; i < 10; i++) {
@@ -81,6 +84,20 @@ public class Race {
 
             System.out.println(sb);
         }
+    }
+
+    public List<String> getBrokeTruckNames() {
+        List<String> names = new ArrayList<>();
+        for (Vehicle vehicle :
+                vehicles) {
+            if (vehicle.vehicleType == Vehicle.VehicleType.TRUCK) {
+                Truck truck = (Truck) vehicle;
+                if (truck.getBreakdownTurnsLeft() > 0) {
+                    names.add(vehicle.getName());
+                }
+            }
+        }
+        return names;
     }
 
 }
