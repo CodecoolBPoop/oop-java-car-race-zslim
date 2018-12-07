@@ -24,35 +24,20 @@ public class Race {
                 vehicle.prepareForLap(this);
                 vehicle.moveForAnHour();
             }
-            printLapResults(j);
+            int howManyPlacesToShow = 10;
+            printLapResults(j, howManyPlacesToShow);
         }
     }
 
     public void printRaceResults() {
         vehicles.sort(Comparator.comparing(Vehicle::getDistanceTraveled).reversed());
-        int place = 1;
 
         System.out.println("\n\n==== Final results ====");
 
-        for (Vehicle vehicle :
-                vehicles) {
-            StringBuilder sb = new StringBuilder();
-
-            sb.append(place);
-            sb.append(". ");
-            sb.append(vehicle.getVehicleType().toString());
-            sb.append(" ");
-            sb.append(vehicle.getName());
-            sb.append(", ");
-            sb.append(vehicle.getDistanceTraveled());
-
-            System.out.println(sb);
-
-            place++;
-        }
+        printCurrentResults(vehicles.size());
     }
 
-    public void printLapResults(int lapNumber) {
+    private void printLapResults(int lapNumber, int numOfPlacesToShow) {
         vehicles.sort(Comparator.comparing(Vehicle::getDistanceTraveled).reversed());
 
         System.out.println("\n>>> Results after lap " + lapNumber + ":");
@@ -62,13 +47,18 @@ public class Race {
         }
 
         if (getBrokeTruckNames().size() > 0) {
-            StringBuilder sb = new StringBuilder("BROKEN TRUCKS: ");
+            StringBuilder sb = new StringBuilder("BROKEN TRUCK(S): ");
             List<String> brokenTruckNames = getBrokeTruckNames();
             sb.append(String.join(", ", brokenTruckNames));
             System.out.println(sb);
         }
 
-        for (int i = 0; i < 30; i++) {
+        printCurrentResults(numOfPlacesToShow);
+    }
+
+    private void printCurrentResults(int numberOfLinesToPrint) {
+
+        for (int i = 0; i < numberOfLinesToPrint; i++) {
             Vehicle currentVehicle = vehicles.get(i);
             StringBuilder sb = new StringBuilder();
 
@@ -82,6 +72,7 @@ public class Race {
 
             System.out.println(sb);
         }
+
     }
 
     public List<String> getBrokeTruckNames() {
