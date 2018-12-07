@@ -74,14 +74,14 @@ public class Race {
             System.out.println("RAINING!");
         }
 
-        if (numOfBrokenTrucks > 0) {
+        if (getBrokeTruckNames().size() > 0) {
             StringBuilder sb = new StringBuilder("BROKEN TRUCKS: ");
             List<String> brokenTruckNames = getBrokeTruckNames();
             sb.append(String.join(", ", brokenTruckNames));
             System.out.println(sb);
         }
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 30; i++) {
             Vehicle currentVehicle = vehicles.get(i);
             StringBuilder sb = new StringBuilder();
 

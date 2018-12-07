@@ -42,12 +42,12 @@ public class Car extends Vehicle {
 
     @Override
     public void prepareForLap(Race race) {
-        if (race.getNumOfBrokenTrucks() > 0) {
+        if (race.getBrokeTruckNames().size() > 0) {
             currentSpeed = MAX_SPEED_IF_BROKE_TRUCK;
         } else if (race.weather.isRaining()) {
             currentSpeed = Util.round(normalSpeed * rainDisadvantage);
         } else {
-            currentSpeed = normalSpeed;
+            currentSpeed = normalSpeed;  // TODO: why does this line matter? if I comment it out, cars become much slower
         }
     }
 }

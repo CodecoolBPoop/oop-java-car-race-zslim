@@ -25,13 +25,13 @@ public class Truck extends Vehicle {
     @Override
     public void prepareForLap(Race race) {
         if (breakdownTurnsLeft > 0) {
-            currentSpeed = 0;
             breakdownTurnsLeft --;
-            race.decrementNumOfBrokenTrucks();
+            if (breakdownTurnsLeft == 0) {
+                currentSpeed = SPEED;
+            }
         } else {
             if (Util.prob(BREAKING_DOWN_PROBABILITY)) {
-                race.incrementNumOfBrokenTrucks();
-                breakdownTurnsLeft = BREAKDOWN_TURNS - 1;
+                breakdownTurnsLeft = BREAKDOWN_TURNS;
                 currentSpeed = 0;
             } else {
                 currentSpeed = SPEED;
