@@ -34,11 +34,22 @@ abstract class Vehicle {
         }
     }
 
+    public int getVehicleValue() {
+        return vehicleType.value;
+    }
+
     public VehicleType getVehicleType() {
         return vehicleType;
     }
 
     enum VehicleType {
-        CAR, MOTORCYCLE, TRUCK
+        TRUCK(0), CAR(1), MOTORCYCLE(2);
+
+        private int value;
+
+        VehicleType(int value) {
+            this.value = value;
+        }
+
     }
 }

@@ -19,12 +19,13 @@ public class Race {
     public void simulateRace() {
         for (int j = 1; j <= LAPS_IN_RACE; j++) {
             weather.setRaining();
+            vehicles.sort(Comparator.comparing(Vehicle::getVehicleValue));
             for (Vehicle vehicle :
                     vehicles) {
                 vehicle.prepareForLap(this);
                 vehicle.moveForAnHour();
             }
-            int howManyPlacesToShow = 10;
+            int howManyPlacesToShow = vehicles.size();
             printLapResults(j, howManyPlacesToShow);
         }
     }

@@ -33,7 +33,8 @@ public class Car extends Vehicle {
 
     @Override
     public void prepareForLap(Race race) {
-        if (race.getBrokeTruckNames().size() > 0) {
+        int numOfBrokeTrucks = race.getBrokeTruckNames().size();
+        if (numOfBrokeTrucks > 0) {
             currentSpeed = MAX_SPEED_IF_BROKE_TRUCK;
         } else {
             currentSpeed = normalSpeed;
