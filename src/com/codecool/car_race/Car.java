@@ -5,10 +5,6 @@ public class Car extends Vehicle {
     private static final int MAX_SPEED_IF_BROKE_TRUCK = 75;
     private static final int NORMAL_SPEED_MIN = 80;
     private static final int NORMAL_SPEED_MAX = 110;
-    private static final double RAIN_DISADVANTAGE_MIN = 0.7;
-    private static final double RAIN_DISADVANTAGE_MAX = 0.9;
-
-    private double rainDisadvantage;
 
     private int normalSpeed;
 
@@ -24,7 +20,6 @@ public class Car extends Vehicle {
         setName();
         setVehicleType();
         setNormalSpeed();
-        setRainDisadvantage();
     }
 
     @Override
@@ -36,16 +31,10 @@ public class Car extends Vehicle {
         normalSpeed = Util.getRandomNumber(NORMAL_SPEED_MIN, NORMAL_SPEED_MAX);
     }
 
-    private void setRainDisadvantage() {
-        rainDisadvantage = Util.getRandomNumber(RAIN_DISADVANTAGE_MIN, RAIN_DISADVANTAGE_MAX);
-    }
-
     @Override
     public void prepareForLap(Race race) {
         if (race.getBrokeTruckNames().size() > 0) {
             currentSpeed = MAX_SPEED_IF_BROKE_TRUCK;
-        } else if (race.weather.isRaining()) {
-            currentSpeed = Util.round(normalSpeed * rainDisadvantage);
         } else {
             currentSpeed = normalSpeed;
         }

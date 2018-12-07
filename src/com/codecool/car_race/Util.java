@@ -17,20 +17,7 @@ public class Util {
         return rand;
     }
 
-    public static double getRandomNumber(double min, double max) {
-        if (max < min) {
-            double y = max;
-            max = min;
-            min = y;
-        }
-        double rand = Math.random() * (max - min) + min;
-        return rand;
-    }
-
     public static int round(double number) {
-        return (int) Math.round(number);
-    }
-    public static int round(float number) {
         return (int) Math.round(number);
     }
 }

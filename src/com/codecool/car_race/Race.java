@@ -7,30 +7,17 @@ import java.util.List;
 public class Race {
 
     public static final int LAPS_IN_RACE = 50;
-    private int numOfBrokenTrucks;
 
     public Weather weather;
 
     public List<Vehicle> vehicles = new ArrayList<>();
-
-    public void incrementNumOfBrokenTrucks() {
-        numOfBrokenTrucks++;
-    }
-
-    public void decrementNumOfBrokenTrucks() {
-        numOfBrokenTrucks--;
-    }
-
-    public int getNumOfBrokenTrucks() {
-        return numOfBrokenTrucks;
-    }
 
     public Race() {
         weather = new Weather();
     }
 
     public void simulateRace() {
-        for (int j = 1; j < LAPS_IN_RACE + 1; j++) {
+        for (int j = 1; j <= LAPS_IN_RACE; j++) {
             weather.setRaining();
             for (Vehicle vehicle :
                     vehicles) {
