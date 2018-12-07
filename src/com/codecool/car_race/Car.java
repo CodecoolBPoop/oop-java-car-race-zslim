@@ -29,7 +29,7 @@ public class Car extends Vehicle {
 
     @Override
     protected void setName() { // TODO: why can't this be private?
-        name = nameList[Util.getRandomNumber(0, nameList.length - 1)] + nameList[Util.getRandomNumber(0, nameList.length - 1)];
+        name = nameList[Util.getRandomNumber(0, nameList.length - 1)] + " " + nameList[Util.getRandomNumber(0, nameList.length - 1)];
     }
 
     private void setNormalSpeed() {
