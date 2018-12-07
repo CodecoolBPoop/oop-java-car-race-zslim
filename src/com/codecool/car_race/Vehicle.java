@@ -16,6 +16,6 @@ abstract class Vehicle {
     abstract void prepareForLap(Race race);
 
     public void moveForAnHour() {
-        distanceTraveled ++;
+        distanceTraveled += currentSpeed;
     }
 }
