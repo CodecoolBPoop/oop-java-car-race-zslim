@@ -34,7 +34,7 @@ public class Truck extends Vehicle {
                 breakdownTurnsLeft = BREAKDOWN_TURNS;
                 currentSpeed = 0;
             } else {
-                currentSpeed = SPEED;
+//                currentSpeed = SPEED; // TODO: why does this line matter? if I comment it out, trucks become much slower
             }
         }
 

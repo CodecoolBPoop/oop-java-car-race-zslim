@@ -47,7 +47,7 @@ public class Car extends Vehicle {
         } else if (race.weather.isRaining()) {
             currentSpeed = Util.round(normalSpeed * rainDisadvantage);
         } else {
-            currentSpeed = normalSpeed;  // TODO: why does this line matter? if I comment it out, cars become much slower
+            currentSpeed = normalSpeed;
         }
     }
 }
